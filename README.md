@@ -112,3 +112,7 @@ Form config can have nested field based on parent field selection. In below code
     }
 }
 ```
+
+### Theme
+
+Current form support `light` and `blue` theme.
