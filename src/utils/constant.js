@@ -1,4 +1,4 @@
-export const DEFAULT_THEME = 'blue'
+export const DEFAULT_THEME = 'light'
 
 export const FIELD = {
     INPUT: 'input',
