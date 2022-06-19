@@ -54,8 +54,8 @@ const RadioLabel = styled.label`
   padding: 5px 10px 5px 0;
   position: relative;
   ${props =>
-        props.disabled &&
-        `
+    props.disabled &&
+    `
         cursor: not-allowed;
         opacity: 0.4;
     `}
@@ -63,36 +63,35 @@ const RadioLabel = styled.label`
 
 
 export const RadioButton = ({ name, children, checked }) => (
-    <RadioLabel>
-        {console.log('cc', checked)}
-        <Input name={name} type="radio" defaultChecked={checked} />
-        <Mark />
-        {children}
-    </RadioLabel>
+  <RadioLabel>
+    <Input name={name} type="radio" defaultChecked={checked} />
+    <Mark />
+    {children}
+  </RadioLabel>
 );
 
 export default function Radio({ metadata, setField, index, path }) {
-    const { label, value, options, id, errorMessage, valid } = metadata;
-    return (
-        <div>
-            <div><Label label={label}></Label></div>
-            {
-                options.map((option, idx) => (
-                    <RadioWrapper key={idx} onChange={() => setField(option.value, index, path)}>
-                        <RadioButton name={id} index={index}> {option.displayValue}</RadioButton>
-                    </RadioWrapper>
-                ))
-            }
-            {valid && <Error>{errorMessage}</Error>}
-            {value && metadata[value].fields.map((field, key) => {
-                return <Field
-                    key={field.id}
-                    index={index}
-                    path={`${index}.${value}.fields.${key}`}
-                    metadata={field}
-                    onFieldUpdate={setField}
-                />
-            })}
-        </div>
-    )
+  const { label, value, options, id, errorMessage, valid } = metadata;
+  return (
+    <div>
+      <div><Label label={label}></Label></div>
+      {
+        options.map((option, idx) => (
+          <RadioWrapper key={idx} onChange={() => setField(option.value, index, path)}>
+            <RadioButton name={id} index={index}> {option.displayValue}</RadioButton>
+          </RadioWrapper>
+        ))
+      }
+      {valid && <Error>{errorMessage}</Error>}
+      {value && metadata[value].fields.map((field, key) => {
+        return <Field
+          key={field.id}
+          index={index}
+          path={`${index}.${value}.fields.${key}`}
+          metadata={field}
+          onFieldUpdate={setField}
+        />
+      })}
+    </div>
+  )
 };
