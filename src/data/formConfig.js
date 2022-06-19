@@ -107,7 +107,7 @@ const formData = {
                     {
                         id: 'name',
                         type: 'input',
-                        placeholder: 'Enter name',
+                        placeholder: 'Enter your favorite subject',
                         dataType: 'text',
                         value: '',
                         validation: {
@@ -123,7 +123,7 @@ const formData = {
                     {
                         id: 'street',
                         type: 'textarea',
-                        placeholder: 'Enter Address',
+                        placeholder: 'Describe your child nature',
                         dataType: 'text',
                         value: '',
                         validation: {
